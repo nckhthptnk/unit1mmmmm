@@ -1,0 +1,1913 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1: Generation Gap & Independent Life</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 50%, #00cec9 100%);
+            min-height: 100%;
+        }
+        
+        html {
+            height: 100%;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+        
+        .tab-btn {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+        
+        .tab-btn:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+        
+        .tab-btn.active {
+            background: #ffffff;
+            color: #0984e3;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .content-section {
+            display: none;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+        
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .lesson-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-left: 4px solid #00cec9;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+        
+        .lesson-title {
+            color: #0984e3;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .vocabulary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .vocab-card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid #00cec9;
+        }
+        
+        .vocab-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.12);
+        }
+        
+        .vocab-word {
+            font-weight: bold;
+            color: #0984e3;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+        
+        .vocab-ipa {
+            color: #fd79a8;
+            font-style: italic;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        
+        .vocab-meaning {
+            color: #333;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .vocab-example {
+            color: #666;
+            font-style: italic;
+            font-size: 0.9rem;
+            background: #f8f9fa;
+            padding: 8px;
+            border-radius: 5px;
+            margin-top: 8px;
+        }
+        
+        .audio-btn {
+            background: #00b894;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .audio-btn:hover {
+            background: #00a085;
+            transform: scale(1.05);
+        }
+        
+        .exercise-box {
+            background: linear-gradient(135deg, #dff9fb, #f8f9fa);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+            border: 1px solid rgba(0, 206, 201, 0.2);
+        }
+        
+        .exercise-title {
+            font-weight: bold;
+            color: #0984e3;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .question {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .option {
+            padding: 12px 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .option:hover {
+            background: #e9ecef;
+            border-color: #00cec9;
+        }
+        
+        .option.selected {
+            background: #0984e3;
+            color: white;
+            border-color: #74b9ff;
+        }
+        
+        .option.correct {
+            background: #00b894;
+            color: white;
+            border-color: #00a085;
+        }
+        
+        .option.incorrect {
+            background: #e17055;
+            color: white;
+            border-color: #d63031;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #0984e3, #74b9ff);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 15px rgba(9, 132, 227, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(9, 132, 227, 0.4);
+        }
+        
+        .grammar-example {
+            background: linear-gradient(135deg, #fff9e6, #f0f8ff);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #fdcb6e;
+        }
+        
+        .reading-text {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin: 20px 0;
+        }
+        
+        .clickable-word {
+            color: #0984e3;
+            cursor: pointer;
+            font-weight: 500;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            position: relative;
+        }
+        
+        .clickable-word:hover {
+            background: #dff9fb;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        
+        .clickable-word:after {
+            content: "🔊";
+            font-size: 0.8rem;
+            margin-left: 3px;
+            opacity: 0.6;
+        }
+        
+        .word-tooltip {
+            position: absolute;
+            background: #333;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            z-index: 1000;
+            display: none;
+            max-width: 200px;
+        }
+        
+        .flashcard-container {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .flashcard {
+            width: 400px;
+            height: 280px;
+            position: relative;
+            cursor: pointer;
+            perspective: 1000px;
+        }
+        
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .flashcard-front {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .flashcard-back {
+            background: linear-gradient(135deg, #00cec9, #00b894);
+            color: white;
+            transform: rotateY(180deg);
+            flex-direction: column;
+            gap: 15px;
+            padding: 20px;
+        }
+        
+        .flashcard-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .control-btn {
+            background: linear-gradient(135deg, #0984e3, #74b9ff);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 15px rgba(9, 132, 227, 0.3);
+        }
+        
+        .control-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(9, 132, 227, 0.4);
+        }
+        
+        .control-btn.correct {
+            background: linear-gradient(135deg, #00b894, #00cec9);
+        }
+        
+        .control-btn.incorrect {
+            background: linear-gradient(135deg, #e17055, #fd79a8);
+        }
+        
+        .flashcard-stats {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            color: white;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fdcb6e;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .progress-bar {
+            background: rgba(255,255,255,0.2);
+            height: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(135deg, #00b894, #00cec9);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .quiz-game-header {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            color: white;
+        }
+        
+        .quiz-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+        
+        .quiz-stat {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        
+        .quiz-stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fdcb6e;
+        }
+        
+        .quiz-stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        
+        .quiz-question-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .quiz-option {
+            background: #f8f9fa;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .quiz-option:hover {
+            background: #e9ecef;
+            border-color: #0984e3;
+            transform: translateY(-2px);
+        }
+        
+        .quiz-option.selected {
+            background: #0984e3;
+            color: white;
+            border-color: #74b9ff;
+        }
+        
+        .quiz-option.correct {
+            background: #00b894;
+            color: white;
+            border-color: #00cec9;
+        }
+        
+        .quiz-option.incorrect {
+            background: #e17055;
+            color: white;
+            border-color: #d63031;
+        }
+        
+        .quiz-timer {
+            background: linear-gradient(135deg, #fd79a8, #fdcb6e);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 10px;
+        }
+        
+        .quiz-timer.warning {
+            background: linear-gradient(135deg, #e17055, #d63031);
+            animation: pulse 1s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            .vocabulary-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .flashcard {
+                width: 320px;
+                height: 220px;
+            }
+            
+            .flashcard-front, .flashcard-back {
+                font-size: 1.2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Unit 1: Generation Gap & Independent Life</h1>
+            <p>Khám phá khoảng cách thế hệ và cuộc sống độc lập</p>
+        </header>
+
+        <nav class="nav-tabs">
+            <button class="tab-btn active" onclick="showSection('vocabulary')">📚 Vocabulary</button>
+            <button class="tab-btn" onclick="showSection('reading')">📖 Reading</button>
+            <button class="tab-btn" onclick="showSection('flashcards')">🎮 Flashcard Game</button>
+            <button class="tab-btn" onclick="showSection('grammar')">📝 Grammar</button>
+            <button class="tab-btn" onclick="showSection('quiz')">🧠 Quiz</button>
+        </nav>
+
+        <!-- Vocabulary Section -->
+        <section id="vocabulary" class="content-section active">
+            <div class="lesson-card">
+                <h2 class="lesson-title">📚 Unit 1 Vocabulary - Generation Gap & Independent Life</h2>
+                
+                <div class="vocabulary-grid">
+                    <div class="vocab-card">
+                        <div class="vocab-word">Generation gap</div>
+                        <div class="vocab-ipa">/ˌdʒenəˈreɪʃən ɡæp/</div>
+                        <div class="vocab-meaning">Khoảng cách thế hệ</div>
+                        <div class="vocab-example">"The generation gap between parents and teenagers is getting wider."</div>
+                        <button class="audio-btn" onclick="playAudio('generation gap')">🔊 Play</button>
+                    </div>
+                    
+                    <div class="vocab-card">
+                        <div class="vocab-word">Independent</div>
+                        <div class="vocab-ipa">/ˌɪndɪˈpendənt/</div>
+                        <div class="vocab-meaning">Độc lập, tự lập</div>
+                        <div class="vocab-example">"She wants to be more independent from her parents."</div>
+                        <button class="audio-btn" onclick="playAudio('independent')">🔊 Play</button>
+                    </div>
+                    
+                    <div class="vocab-card">
+                        <div class="vocab-word">Rebellious</div>
+                        <div class="vocab-ipa">/rɪˈbeljəs/</div>
+                        <div class="vocab-meaning">Nổi loạn, chống đối</div>
+                        <div class="vocab-example">"Many teenagers go through a rebellious phase."</div>
+                        <button class="audio-btn" onclick="playAudio('rebellious')">🔊 Play</button>
+                    </div>
+                    
+                    <div class="vocab-card">
+                        <div class="vocab-word">Supportive</div>
+                        <div class="vocab-ipa">/səˈpɔːrtɪv/</div>
+                        <div class="vocab-meaning">Ủng hộ, hỗ trợ</div>
+                        <div class="vocab-example">"My parents are very supportive of my career choice."</div>
+                        <button class="audio-btn" onclick="playAudio('supportive')">🔊 Play</button>
+                    </div>
+                    
+                    <div class="vocab-card">
+                        <div class="vocab-word">Overprotective</div>
+                        <div class="vocab-ipa">/ˌoʊvərprəˈtektɪv/</div>
+                        <div class="vocab-meaning">Bảo vệ quá mức</div>
+                        <div class="vocab-example">"Some parents can be overprotective of their children."</div>
+                        <button class="audio-btn" onclick="playAudio('overprotective')">🔊 Play</button>
+                    </div>
+                    
+                    <div class="vocab-card">
+                        <div class="vocab-word">Conflict</div>
+                        <div class="vocab-ipa">/ˈkɑːnflɪkt/</div>
+                        <div class="vocab-meaning">Xung đột, mâu thuẫn</div>
+                        <div class="vocab-example">"There's often conflict between different generations."</div>
+                        <button class="audio-btn" onclick="playAudio('conflict')">🔊 Play</button>
+                    </div>
+                    
+                    <div class="vocab-card">
+                        <div class="vocab-word">Responsibility</div>
+                        <div class="vocab-ipa">/rɪˌspɑːnsəˈbɪləti/</div>
+                        <div class="vocab-meaning">Trách nhiệm</div>
+                        <div class="vocab-example">"Taking responsibility is part of growing up."</div>
+                        <button class="audio-btn" onclick="playAudio('responsibility')">🔊 Play</button>
+                    </div>
+                    
+                    <div class="vocab-card">
+                        <div class="vocab-word">Mature</div>
+                        <div class="vocab-ipa">/məˈtʊr/</div>
+                        <div class="vocab-meaning">Trưởng thành, chín chắn</div>
+                        <div class="vocab-example">"She's very mature for her age."</div>
+                        <button class="audio-btn" onclick="playAudio('mature')">🔊 Play</button>
+                    </div>
+                    
+                    <div class="vocab-card">
+                        <div class="vocab-word">Traditional</div>
+                        <div class="vocab-ipa">/trəˈdɪʃənəl/</div>
+                        <div class="vocab-meaning">Truyền thống</div>
+                        <div class="vocab-example">"My grandparents have traditional values."</div>
+                        <button class="audio-btn" onclick="playAudio('traditional')">🔊 Play</button>
+                    </div>
+                    
+                    <div class="vocab-card">
+                        <div class="vocab-word">Modern</div>
+                        <div class="vocab-ipa">/ˈmɑːdərn/</div>
+                        <div class="vocab-meaning">Hiện đại</div>
+                        <div class="vocab-example">"Young people prefer modern lifestyle."</div>
+                        <button class="audio-btn" onclick="playAudio('modern')">🔊 Play</button>
+                    </div>
+                    
+                    <div class="vocab-card">
+                        <div class="vocab-word">Respect</div>
+                        <div class="vocab-ipa">/rɪˈspekt/</div>
+                        <div class="vocab-meaning">Tôn trọng</div>
+                        <div class="vocab-example">"Children should respect their elders."</div>
+                        <button class="audio-btn" onclick="playAudio('respect')">🔊 Play</button>
+                    </div>
+                    
+                    <div class="vocab-card">
+                        <div class="vocab-word">Authority</div>
+                        <div class="vocab-ipa">/əˈθɔːrəti/</div>
+                        <div class="vocab-meaning">Quyền lực, uy quyền</div>
+                        <div class="vocab-example">"Teenagers often challenge parental authority."</div>
+                        <button class="audio-btn" onclick="playAudio('authority')">🔊 Play</button>
+                    </div>
+                    
+                    <div class="vocab-card">
+                        <div class="vocab-word">Freedom</div>
+                        <div class="vocab-ipa">/ˈfriːdəm/</div>
+                        <div class="vocab-meaning">Tự do</div>
+                        <div class="vocab-example">"Young adults want more freedom to make their own choices."</div>
+                        <button class="audio-btn" onclick="playAudio('freedom')">🔊 Play</button>
+                    </div>
+                    
+                    <div class="vocab-card">
+                        <div class="vocab-word">Household chores</div>
+                        <div class="vocab-ipa">/ˈhaʊshoʊld tʃɔːrz/</div>
+                        <div class="vocab-meaning">Việc nhà</div>
+                        <div class="vocab-example">"Doing household chores teaches responsibility."</div>
+                        <button class="audio-btn" onclick="playAudio('household chores')">🔊 Play</button>
+                    </div>
+                    
+                    <div class="vocab-card">
+                        <div class="vocab-word">Curfew</div>
+                        <div class="vocab-ipa">/ˈkɜːrfjuː/</div>
+                        <div class="vocab-meaning">Giờ giới nghiêm</div>
+                        <div class="vocab-example">"My parents set a curfew of 10 PM on weekdays."</div>
+                        <button class="audio-btn" onclick="playAudio('curfew')">🔊 Play</button>
+                    </div>
+                    
+                    <div class="vocab-card">
+                        <div class="vocab-word">Allowance</div>
+                        <div class="vocab-ipa">/əˈlaʊəns/</div>
+                        <div class="vocab-meaning">Tiền tiêu vặt</div>
+                        <div class="vocab-example">"I get a weekly allowance for helping with chores."</div>
+                        <button class="audio-btn" onclick="playAudio('allowance')">🔊 Play</button>
+                    </div>
+                    
+                    <div class="vocab-card">
+                        <div class="vocab-word">Peer pressure</div>
+                        <div class="vocab-ipa">/pɪr ˈpreʃər/</div>
+                        <div class="vocab-meaning">Áp lực từ bạn bè</div>
+                        <div class="vocab-example">"Peer pressure can influence teenagers' decisions."</div>
+                        <button class="audio-btn" onclick="playAudio('peer pressure')">🔊 Play</button>
+                    </div>
+                    
+                    <div class="vocab-card">
+                        <div class="vocab-word">Privacy</div>
+                        <div class="vocab-ipa">/ˈpraɪvəsi/</div>
+                        <div class="vocab-meaning">Sự riêng tư</div>
+                        <div class="vocab-example">"Teenagers need some privacy in their rooms."</div>
+                        <button class="audio-btn" onclick="playAudio('privacy')">🔊 Play</button>
+                    </div>
+                    
+                    <div class="vocab-card">
+                        <div class="vocab-word">Communication</div>
+                        <div class="vocab-ipa">/kəˌmjuːnɪˈkeɪʃən/</div>
+                        <div class="vocab-meaning">Giao tiếp, liên lạc</div>
+                        <div class="vocab-example">"Good communication helps solve family problems."</div>
+                        <button class="audio-btn" onclick="playAudio('communication')">🔊 Play</button>
+                    </div>
+                    
+                    <div class="vocab-card">
+                        <div class="vocab-word">Understanding</div>
+                        <div class="vocab-ipa">/ˌʌndərˈstændɪŋ/</div>
+                        <div class="vocab-meaning">Sự hiểu biết, thông cảm</div>
+                        <div class="vocab-example">"Parents need to show understanding towards their children."</div>
+                        <button class="audio-btn" onclick="playAudio('understanding')">🔊 Play</button>
+                    </div>
+                </div>
+
+                <div class="exercise-box">
+                    <div class="exercise-title">🎯 Vocabulary Quiz</div>
+                    <div class="question">
+                        <p><strong>1. What does "generation gap" mean?</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectVocabOption(this, false)">A space between buildings</div>
+                            <div class="option" onclick="selectVocabOption(this, true)">Differences between older and younger people</div>
+                            <div class="option" onclick="selectVocabOption(this, false)">A type of clothing</div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <p><strong>2. Someone who is "overprotective" is:</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectVocabOption(this, false)">Not caring enough</div>
+                            <div class="option" onclick="selectVocabOption(this, true)">Protecting too much</div>
+                            <div class="option" onclick="selectVocabOption(this, false)">Very angry</div>
+                        </div>
+                    </div>
+                    <button class="btn" onclick="checkVocabAnswers()">Check Answers</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reading Section -->
+        <section id="reading" class="content-section">
+            <div class="lesson-card">
+                <h2 class="lesson-title">📖 Reading: Bridging the Generation Gap</h2>
+                
+                <div class="reading-text">
+                    <h3>Living Independently: A Modern Challenge</h3>
+                    <p>The <span class="clickable-word" data-meaning="differences between older and younger people">generation gap</span> in today's families has become more complex than ever before. Young adults are seeking greater <span class="clickable-word" data-meaning="freedom from control">independence</span> from their parents, while parents struggle to balance giving <span class="clickable-word" data-meaning="liberty to choose">freedom</span> with maintaining <span class="clickable-word" data-meaning="power or control">authority</span>.</p>
+                    
+                    <p>Many teenagers become <span class="clickable-word" data-meaning="defiant or disobedient">rebellious</span> when they feel their parents are too <span class="clickable-word" data-meaning="protecting excessively">overprotective</span>. This often leads to <span class="clickable-word" data-meaning="disagreements or fights">conflicts</span> about simple things like <span class="clickable-word" data-meaning="time to be home">curfew</span>, <span class="clickable-word" data-meaning="personal space">privacy</span>, and <span class="clickable-word" data-meaning="tasks around the house">household chores</span>.</p>
+                    
+                    <p>However, successful families find ways to bridge these differences through open <span class="clickable-word" data-meaning="talking and sharing ideas">communication</span> and mutual <span class="clickable-word" data-meaning="honor and consideration">respect</span>. Parents learn to be more <span class="clickable-word" data-meaning="helpful and encouraging">supportive</span> while still teaching <span class="clickable-word" data-meaning="duty and accountability">responsibility</span>. Young people, in turn, become more <span class="clickable-word" data-meaning="grown-up and sensible">mature</span> and show greater <span class="clickable-word" data-meaning="compassion and empathy">understanding</span> of their parents' concerns.</p>
+                    
+                    <p>The key to family harmony lies in balancing <span class="clickable-word" data-meaning="old customs and beliefs">traditional</span> values with <span class="clickable-word" data-meaning="contemporary and current">modern</span> perspectives, creating an environment where both generations can thrive.</p>
+                </div>
+
+                <div class="word-tooltip" id="tooltip"></div>
+
+                <div class="exercise-box">
+                    <div class="exercise-title">📚 Reading Comprehension Quiz</div>
+                    <div class="question">
+                        <p><strong>1. According to the text, what do young adults seek from their parents?</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectReadingOption(this, false)">More money</div>
+                            <div class="option" onclick="selectReadingOption(this, true)">Greater independence</div>
+                            <div class="option" onclick="selectReadingOption(this, false)">Better grades</div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <p><strong>2. What causes teenagers to become rebellious?</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectReadingOption(this, false)">Too much homework</div>
+                            <div class="option" onclick="selectReadingOption(this, true)">Feeling overprotected</div>
+                            <div class="option" onclick="selectReadingOption(this, false)">Peer pressure</div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <p><strong>3. What is the key to family harmony according to the text?</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectReadingOption(this, false)">Strict rules</div>
+                            <div class="option" onclick="selectReadingOption(this, false)">Complete freedom</div>
+                            <div class="option" onclick="selectReadingOption(this, true)">Balancing traditional and modern values</div>
+                        </div>
+                    </div>
+                    <button class="btn" onclick="checkReadingAnswers()">Check Answers</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flashcard Game Section -->
+        <section id="flashcards" class="content-section">
+            <div class="lesson-card">
+                <h2 class="lesson-title">🎮 Interactive Flashcard & Quiz Game</h2>
+                
+                <!-- Game Mode Selection -->
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <button class="btn" id="studyModeBtn" onclick="setGameMode('study')" style="margin: 5px;">📚 Study Mode</button>
+                    <button class="btn" id="quizModeBtn" onclick="setGameMode('quiz')" style="margin: 5px;">🎯 Quiz Game</button>
+                </div>
+
+                <!-- Study Mode (Original Flashcards) -->
+                <div id="studyMode">
+                    <div class="flashcard-stats">
+                        <h3>📊 Your Learning Progress</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-number" id="totalCards">0</div>
+                                <div class="stat-label">Cards Studied</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" id="correctCards">0</div>
+                                <div class="stat-label">Known Words</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" id="accuracyRate">0%</div>
+                                <div class="stat-label">Success Rate</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flashcard-container">
+                        <div class="flashcard" id="flashcard" onclick="flipCard()">
+                            <div class="flashcard-inner" id="flashcardInner">
+                                <div class="flashcard-front" id="flashcardFront">
+                                    <div style="font-size: 1.8rem; margin-bottom: 10px;">Generation gap</div>
+                                    <div style="font-size: 1rem; opacity: 0.8;">/ˌdʒenəˈreɪʃən ɡæp/</div>
+                                </div>
+                                <div class="flashcard-back" id="flashcardBack">
+                                    <div id="flashcardMeaning" style="font-size: 1.3rem; margin-bottom: 15px;">Khoảng cách thế hệ</div>
+                                    <div style="font-size: 1rem; opacity: 0.9; text-align: center;" id="flashcardExample">"The generation gap between parents and teenagers is getting wider."</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flashcard-controls">
+                        <button class="control-btn incorrect" onclick="markCard(false)">😕 Need Practice</button>
+                        <button class="control-btn" onclick="nextCard()">⏭️ Next Card</button>
+                        <button class="control-btn correct" onclick="markCard(true)">😊 I Know This</button>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button class="btn" onclick="shuffleCards()">🔀 Shuffle Cards</button>
+                        <button class="btn" onclick="resetProgress()">🔄 Reset Progress</button>
+                    </div>
+                </div>
+
+                <!-- Quiz Game Mode -->
+                <div id="quizMode" style="display: none;">
+                    <div class="quiz-game-header">
+                        <div class="quiz-stats-grid">
+                            <div class="quiz-stat">
+                                <div class="quiz-stat-number" id="quizScore">0</div>
+                                <div class="quiz-stat-label">Score</div>
+                            </div>
+                            <div class="quiz-stat">
+                                <div class="quiz-stat-number" id="quizStreak">0</div>
+                                <div class="quiz-stat-label">Streak</div>
+                            </div>
+                            <div class="quiz-stat">
+                                <div class="quiz-stat-number" id="quizTimer">30</div>
+                                <div class="quiz-stat-label">Time</div>
+                            </div>
+                            <div class="quiz-stat">
+                                <div class="quiz-stat-number" id="quizQuestion">1/10</div>
+                                <div class="quiz-stat-label">Question</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-type-selector" style="text-align: center; margin: 20px 0;">
+                        <button class="btn" onclick="startQuizGame('multiple')" style="margin: 5px;">🎯 Multiple Choice</button>
+                        <button class="btn" onclick="startQuizGame('type')" style="margin: 5px;">⌨️ Type the Word</button>
+                        <button class="btn" onclick="startQuizGame('match')" style="margin: 5px;">🔗 Match Definition</button>
+                        <button class="btn" onclick="startQuizGame('audio')" style="margin: 5px;">🔊 Audio Challenge</button>
+                    </div>
+
+                    <div id="quizGameArea" style="display: none;">
+                        <div class="quiz-question-card">
+                            <div id="quizQuestionText" style="font-size: 1.3rem; margin-bottom: 20px; text-align: center;"></div>
+                            <div id="quizOptionsArea"></div>
+                            <div id="quizInputArea" style="display: none; text-align: center;">
+                                <input type="text" id="quizInput" placeholder="Type your answer..." style="padding: 12px; font-size: 1.1rem; border-radius: 8px; border: 2px solid #ddd; width: 300px; margin: 10px;">
+                                <br>
+                                <button class="btn" onclick="submitTypedAnswer()">Submit Answer</button>
+                            </div>
+                            <div id="quizFeedback" style="margin-top: 20px; text-align: center; font-size: 1.1rem;"></div>
+                        </div>
+                    </div>
+
+                    <div id="quizResults" style="display: none; text-align: center; margin-top: 20px;">
+                        <h3>🎉 Quiz Complete!</h3>
+                        <div id="finalQuizScore" style="font-size: 1.5rem; margin: 15px 0;"></div>
+                        <button class="btn" onclick="resetQuizGame()">🔄 Play Again</button>
+                    </div>
+                </div>
+
+                <div class="exercise-box">
+                    <div class="exercise-title">🎯 Flashcard Quiz</div>
+                    <div class="question">
+                        <p><strong>1. What does "curfew" mean?</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectFlashcardOption(this, false)">A type of food</div>
+                            <div class="option" onclick="selectFlashcardOption(this, true)">Time to be home</div>
+                            <div class="option" onclick="selectFlashcardOption(this, false)">A school subject</div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <p><strong>2. Someone who is "mature" is:</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectFlashcardOption(this, false)">Very young</div>
+                            <div class="option" onclick="selectFlashcardOption(this, true)">Grown-up and sensible</div>
+                            <div class="option" onclick="selectFlashcardOption(this, false)">Always angry</div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <p><strong>3. "Peer pressure" refers to:</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectFlashcardOption(this, false)">Pressure from teachers</div>
+                            <div class="option" onclick="selectFlashcardOption(this, true)">Influence from friends</div>
+                            <div class="option" onclick="selectFlashcardOption(this, false)">Academic stress</div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <p><strong>4. An "allowance" is:</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectFlashcardOption(this, false)">A type of permission</div>
+                            <div class="option" onclick="selectFlashcardOption(this, true)">Money given regularly</div>
+                            <div class="option" onclick="selectFlashcardOption(this, false)">A school rule</div>
+                        </div>
+                    </div>
+                    <button class="btn" onclick="checkFlashcardAnswers()">Check Answers</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grammar Section -->
+        <section id="grammar" class="content-section">
+            <div class="lesson-card">
+                <h2 class="lesson-title">📝 Grammar Review: Linking Verbs, Present Simple & Continuous, Stative Verbs</h2>
+                
+                <h3>🔗 Linking Verbs</h3>
+                <div class="grammar-example">
+                    <p><strong>Definition:</strong> Linking verbs connect the subject to information about the subject (not an action).</p>
+                    <p><strong>Common linking verbs:</strong> be, seem, appear, become, feel, look, sound, taste, smell, remain, stay</p>
+                    <p><strong>Examples:</strong></p>
+                    <ul>
+                        <li>"My parents <em>are</em> supportive." (be)</li>
+                        <li>"She <em>seems</em> mature for her age." (seem)</li>
+                        <li>"The situation <em>became</em> difficult." (become)</li>
+                        <li>"This <em>sounds</em> like a good plan." (sound)</li>
+                    </ul>
+                </div>
+
+                <h3>⏰ Present Simple</h3>
+                <div class="grammar-example">
+                    <p><strong>Uses:</strong> Habits, facts, general truths, permanent situations</p>
+                    <p><strong>Form:</strong> Subject + base verb (+ s/es for 3rd person singular)</p>
+                    <p><strong>Examples:</strong></p>
+                    <ul>
+                        <li>"My parents <em>work</em> hard every day." (habit)</li>
+                        <li>"Teenagers <em>need</em> independence." (general truth)</li>
+                        <li>"She <em>lives</em> with her family." (permanent situation)</li>
+                    </ul>
+                </div>
+
+                <h3>🔄 Present Continuous</h3>
+                <div class="grammar-example">
+                    <p><strong>Uses:</strong> Actions happening now, temporary situations, future plans</p>
+                    <p><strong>Form:</strong> Subject + am/is/are + verb-ing</p>
+                    <p><strong>Examples:</strong></p>
+                    <ul>
+                        <li>"I <em>am studying</em> for my exams right now." (happening now)</li>
+                        <li>"She <em>is living</em> with her aunt this month." (temporary)</li>
+                        <li>"We <em>are meeting</em> tomorrow." (future plan)</li>
+                    </ul>
+                </div>
+
+                <h3>🚫 Stative Verbs</h3>
+                <div class="grammar-example">
+                    <p><strong>Definition:</strong> Verbs that describe states, not actions. Usually NOT used in continuous forms.</p>
+                    <p><strong>Categories:</strong></p>
+                    <ul>
+                        <li><strong>Emotions:</strong> love, hate, like, prefer, want, need</li>
+                        <li><strong>Thinking:</strong> know, understand, believe, think (opinion), remember</li>
+                        <li><strong>Senses:</strong> see, hear, smell, taste (when not actions)</li>
+                        <li><strong>Possession:</strong> have, own, belong, possess</li>
+                    </ul>
+                    <p><strong>Examples:</strong></p>
+                    <ul>
+                        <li>"I <em>love</em> my family." ✅ (NOT: I am loving my family ❌)</li>
+                        <li>"She <em>knows</em> the answer." ✅ (NOT: She is knowing ❌)</li>
+                        <li>"This <em>belongs</em> to me." ✅ (NOT: This is belonging ❌)</li>
+                    </ul>
+                </div>
+
+                <div class="exercise-box">
+                    <div class="exercise-title">🎯 Grammar Practice</div>
+                    <div class="question">
+                        <p><strong>1. My sister _____ very independent these days.</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectGrammarOption(this, true)">is becoming</div>
+                            <div class="option" onclick="selectGrammarOption(this, false)">becomes</div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <p><strong>2. I _____ what you mean about the generation gap.</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectGrammarOption(this, true)">understand</div>
+                            <div class="option" onclick="selectGrammarOption(this, false)">am understanding</div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <p><strong>3. The music _____ too loud. Can you turn it down?</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectGrammarOption(this, true)">sounds</div>
+                            <div class="option" onclick="selectGrammarOption(this, false)">is sounding</div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <p><strong>4. We _____ dinner with my grandparents every Sunday.</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectGrammarOption(this, true)">have</div>
+                            <div class="option" onclick="selectGrammarOption(this, false)">are having</div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <p><strong>5. Right now, my parents _____ about my curfew.</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectGrammarOption(this, false)">discuss</div>
+                            <div class="option" onclick="selectGrammarOption(this, true)">are discussing</div>
+                        </div>
+                    </div>
+                    <button class="btn" onclick="checkGrammarAnswers()">Check Answers</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="content-section">
+            <div class="lesson-card">
+                <h2 class="lesson-title">🧠 Unit 1 Comprehensive Quiz</h2>
+                
+                <div class="exercise-box">
+                    <div class="exercise-title">📚 Vocabulary Section</div>
+                    <div class="question">
+                        <p><strong>1. What is the meaning of "generation gap"?</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 'vocab', 0, false)">A physical space between buildings</div>
+                            <div class="option" onclick="selectQuizOption(this, 'vocab', 0, true)">Differences in opinions between older and younger people</div>
+                            <div class="option" onclick="selectQuizOption(this, 'vocab', 0, false)">A type of clothing style</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p><strong>2. Someone who is "overprotective" tends to:</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 'vocab', 1, false)">Not care about others</div>
+                            <div class="option" onclick="selectQuizOption(this, 'vocab', 1, true)">Protect someone too much</div>
+                            <div class="option" onclick="selectQuizOption(this, 'vocab', 1, false)">Be very aggressive</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p><strong>3. "Curfew" refers to:</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 'vocab', 2, false)">A type of punishment</div>
+                            <div class="option" onclick="selectQuizOption(this, 'vocab', 2, true)">A time limit for being out</div>
+                            <div class="option" onclick="selectQuizOption(this, 'vocab', 2, false)">A school subject</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p><strong>4. "Rebellious" means:</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 'vocab', 3, false)">Very obedient</div>
+                            <div class="option" onclick="selectQuizOption(this, 'vocab', 3, true)">Defiant and disobedient</div>
+                            <div class="option" onclick="selectQuizOption(this, 'vocab', 3, false)">Extremely happy</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p><strong>5. "Household chores" are:</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 'vocab', 4, false)">School assignments</div>
+                            <div class="option" onclick="selectQuizOption(this, 'vocab', 4, true)">Tasks around the house</div>
+                            <div class="option" onclick="selectQuizOption(this, 'vocab', 4, false)">Types of games</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exercise-box">
+                    <div class="exercise-title">📝 Grammar Section</div>
+                    <div class="question">
+                        <p><strong>6. Choose the correct sentence:</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 'grammar', 0, false)">I am knowing the answer.</div>
+                            <div class="option" onclick="selectQuizOption(this, 'grammar', 0, true)">I know the answer.</div>
+                            <div class="option" onclick="selectQuizOption(this, 'grammar', 0, false)">I knowing the answer.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p><strong>7. "She _____ more independent lately." (linking verb)</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 'grammar', 1, false)">becomes</div>
+                            <div class="option" onclick="selectQuizOption(this, 'grammar', 1, true)">is becoming</div>
+                            <div class="option" onclick="selectQuizOption(this, 'grammar', 1, false)">become</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p><strong>8. "This music _____ too loud!" (stative verb)</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 'grammar', 2, true)">sounds</div>
+                            <div class="option" onclick="selectQuizOption(this, 'grammar', 2, false)">is sounding</div>
+                            <div class="option" onclick="selectQuizOption(this, 'grammar', 2, false)">sound</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p><strong>9. "My parents _____ dinner right now." (present continuous)</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 'grammar', 3, false)">cook</div>
+                            <div class="option" onclick="selectQuizOption(this, 'grammar', 3, true)">are cooking</div>
+                            <div class="option" onclick="selectQuizOption(this, 'grammar', 3, false)">cooks</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p><strong>10. "I _____ my family very much." (stative verb)</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 'grammar', 4, true)">love</div>
+                            <div class="option" onclick="selectQuizOption(this, 'grammar', 4, false)">am loving</div>
+                            <div class="option" onclick="selectQuizOption(this, 'grammar', 4, false)">loves</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exercise-box">
+                    <div class="exercise-title">📖 Reading Comprehension</div>
+                    <div class="question">
+                        <p><strong>11. According to the reading text, what do young adults seek?</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 'reading', 0, false)">More money from parents</div>
+                            <div class="option" onclick="selectQuizOption(this, 'reading', 0, true)">Greater independence</div>
+                            <div class="option" onclick="selectQuizOption(this, 'reading', 0, false)">Better technology</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p><strong>12. What is the key to family harmony?</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 'reading', 1, false)">Strict rules only</div>
+                            <div class="option" onclick="selectQuizOption(this, 'reading', 1, true)">Balancing traditional and modern values</div>
+                            <div class="option" onclick="selectQuizOption(this, 'reading', 1, false)">Complete freedom</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p><strong>13. What causes teenagers to become rebellious?</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 'reading', 2, false)">Too much homework</div>
+                            <div class="option" onclick="selectQuizOption(this, 'reading', 2, true)">Feeling overprotected</div>
+                            <div class="option" onclick="selectQuizOption(this, 'reading', 2, false)">Social media influence</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exercise-box">
+                    <div class="exercise-title">🎯 Mixed Skills</div>
+                    <div class="question">
+                        <p><strong>14. Which sentence shows correct use of Present Continuous?</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 'mixed', 0, false)">I am loving my family very much.</div>
+                            <div class="option" onclick="selectQuizOption(this, 'mixed', 0, true)">I am studying for my exams this week.</div>
+                            <div class="option" onclick="selectQuizOption(this, 'mixed', 0, false)">I am knowing what you mean.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p><strong>15. "Peer pressure" means:</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 'mixed', 1, false)">Pressure from teachers</div>
+                            <div class="option" onclick="selectQuizOption(this, 'mixed', 1, true)">Influence from friends of the same age</div>
+                            <div class="option" onclick="selectQuizOption(this, 'mixed', 1, false)">Pressure from parents</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p><strong>16. "Privacy" is most important for:</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 'mixed', 2, false)">Doing homework</div>
+                            <div class="option" onclick="selectQuizOption(this, 'mixed', 2, true)">Personal space and independence</div>
+                            <div class="option" onclick="selectQuizOption(this, 'mixed', 2, false)">Playing games</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p><strong>17. "Communication" helps families by:</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 'mixed', 3, false)">Making rules stricter</div>
+                            <div class="option" onclick="selectQuizOption(this, 'mixed', 3, true)">Solving problems and understanding each other</div>
+                            <div class="option" onclick="selectQuizOption(this, 'mixed', 3, false)">Avoiding all conflicts</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p><strong>18. Which is a linking verb?</strong></p>
+                        <div class="options">
+                            <div class="option" onclick="selectQuizOption(this, 'mixed', 4, false)">run</div>
+                            <div class="option" onclick="selectQuizOption(this, 'mixed', 4, true)">seem</div>
+                            <div class="option" onclick="selectQuizOption(this, 'mixed', 4, false)">eat</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <button class="btn" onclick="checkFinalQuiz()" style="font-size: 1.1rem; padding: 15px 30px;">🎯 Submit Quiz (18 Questions)</button>
+                    <button class="btn" onclick="resetQuiz()" style="margin-left: 15px;">🔄 Reset Quiz</button>
+                </div>
+
+                <div id="quizResults" style="display: none; margin-top: 20px; padding: 20px; background: linear-gradient(135deg, #e8f5e8, #f0f8ff); border-radius: 15px; text-align: center;">
+                    <h3 style="color: #2e7d32;">🎉 Quiz Results</h3>
+                    <div id="scoreDisplay" style="font-size: 1.5rem; font-weight: bold; margin: 15px 0;"></div>
+                    <div id="feedback" style="font-size: 1.1rem; color: #555;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <p style="text-align: center; color: white; margin-top: 10px;">
+            Progress: <span id="progressText">0%</span>
+        </p>
+    </div>
+
+    <script>
+        let currentSection = 'vocabulary';
+        let completedSections = new Set();
+        
+        // Answer storage for different sections
+        let answers = {
+            vocab: {},
+            reading: {},
+            grammar: {},
+            flashcard: {},
+            quiz: {
+                vocab: {},
+                grammar: {},
+                reading: {},
+                mixed: {}
+            }
+        };
+
+        // Flashcard vocabulary data
+        const flashcardData = [
+            { word: "Generation gap", ipa: "/ˌdʒenəˈreɪʃən ɡæp/", meaning: "Khoảng cách thế hệ", example: "The generation gap between parents and teenagers is getting wider." },
+            { word: "Independent", ipa: "/ˌɪndɪˈpendənt/", meaning: "Độc lập, tự lập", example: "She wants to be more independent from her parents." },
+            { word: "Rebellious", ipa: "/rɪˈbeljəs/", meaning: "Nổi loạn, chống đối", example: "Many teenagers go through a rebellious phase." },
+            { word: "Supportive", ipa: "/səˈpɔːrtɪv/", meaning: "Ủng hộ, hỗ trợ", example: "My parents are very supportive of my career choice." },
+            { word: "Overprotective", ipa: "/ˌoʊvərprəˈtektɪv/", meaning: "Bảo vệ quá mức", example: "Some parents can be overprotective of their children." },
+            { word: "Conflict", ipa: "/ˈkɑːnflɪkt/", meaning: "Xung đột, mâu thuẫn", example: "There's often conflict between different generations." },
+            { word: "Responsibility", ipa: "/rɪˌspɑːnsəˈbɪləti/", meaning: "Trách nhiệm", example: "Taking responsibility is part of growing up." },
+            { word: "Mature", ipa: "/məˈtʊr/", meaning: "Trưởng thành, chín chắn", example: "She's very mature for her age." },
+            { word: "Traditional", ipa: "/trəˈdɪʃənəl/", meaning: "Truyền thống", example: "My grandparents have traditional values." },
+            { word: "Modern", ipa: "/ˈmɑːdərn/", meaning: "Hiện đại", example: "Young people prefer modern lifestyle." },
+            { word: "Respect", ipa: "/rɪˈspekt/", meaning: "Tôn trọng", example: "Children should respect their elders." },
+            { word: "Authority", ipa: "/əˈθɔːrəti/", meaning: "Quyền lực, uy quyền", example: "Teenagers often challenge parental authority." },
+            { word: "Freedom", ipa: "/ˈfriːdəm/", meaning: "Tự do", example: "Young adults want more freedom to make their own choices." },
+            { word: "Household chores", ipa: "/ˈhaʊshoʊld tʃɔːrz/", meaning: "Việc nhà", example: "Doing household chores teaches responsibility." },
+            { word: "Curfew", ipa: "/ˈkɜːrfjuː/", meaning: "Giờ giới nghiêm", example: "My parents set a curfew of 10 PM on weekdays." },
+            { word: "Allowance", ipa: "/əˈlaʊəns/", meaning: "Tiền tiêu vặt", example: "I get a weekly allowance for helping with chores." },
+            { word: "Peer pressure", ipa: "/pɪr ˈpreʃər/", meaning: "Áp lực từ bạn bè", example: "Peer pressure can influence teenagers' decisions." },
+            { word: "Privacy", ipa: "/ˈpraɪvəsi/", meaning: "Sự riêng tư", example: "Teenagers need some privacy in their rooms." },
+            { word: "Communication", ipa: "/kəˌmjuːnɪˈkeɪʃən/", meaning: "Giao tiếp, liên lạc", example: "Good communication helps solve family problems." },
+            { word: "Understanding", ipa: "/ˌʌndərˈstændɪŋ/", meaning: "Sự hiểu biết, thông cảm", example: "Parents need to show understanding towards their children." }
+        ];
+
+        let currentCardIndex = 0;
+        let gameStats = {
+            total: 0,
+            correct: 0,
+            incorrect: 0
+        };
+        let isFlipped = false;
+        
+        // Quiz Game Variables
+        let currentGameMode = 'study';
+        let quizGameData = {
+            type: '',
+            questions: [],
+            currentQuestion: 0,
+            score: 0,
+            streak: 0,
+            timeLeft: 30,
+            timer: null,
+            totalQuestions: 10
+        };
+
+        // Navigation functions
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(sectionId).classList.add('active');
+            event.target.classList.add('active');
+            
+            currentSection = sectionId;
+            updateProgress();
+        }
+
+        // Generic option selection
+        function selectVocabOption(element, isCorrect) {
+            selectOption(element, isCorrect, 'vocab');
+        }
+
+        function selectReadingOption(element, isCorrect) {
+            selectOption(element, isCorrect, 'reading');
+        }
+
+        function selectGrammarOption(element, isCorrect) {
+            selectOption(element, isCorrect, 'grammar');
+        }
+
+        function selectFlashcardOption(element, isCorrect) {
+            selectOption(element, isCorrect, 'flashcard');
+        }
+
+        function selectOption(element, isCorrect, section) {
+            element.parentNode.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            element.classList.add('selected');
+            
+            const questionElement = element.closest('.question');
+            const questionIndex = Array.from(questionElement.parentNode.children).indexOf(questionElement);
+            
+            if (!answers[section]) {
+                answers[section] = {};
+            }
+            answers[section][questionIndex] = isCorrect;
+        }
+
+        // Quiz option selection
+        function selectQuizOption(element, category, questionIndex, isCorrect) {
+            element.parentNode.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            element.classList.add('selected');
+            
+            if (!answers.quiz[category]) {
+                answers.quiz[category] = {};
+            }
+            answers.quiz[category][questionIndex] = isCorrect;
+        }
+
+        // Check answer functions
+        function checkVocabAnswers() {
+            checkSectionAnswers('vocab', 'Vocabulary');
+        }
+
+        function checkReadingAnswers() {
+            checkSectionAnswers('reading', 'Reading');
+        }
+
+        function checkGrammarAnswers() {
+            checkSectionAnswers('grammar', 'Grammar');
+        }
+
+        function checkFlashcardAnswers() {
+            checkSectionAnswers('flashcard', 'Flashcard');
+        }
+
+        function checkSectionAnswers(section, sectionName) {
+            const sectionAnswers = answers[section];
+            let correct = 0;
+            let total = Object.keys(sectionAnswers).length;
+            
+            // Show correct/incorrect answers
+            const questions = document.querySelectorAll(`#${currentSection} .question`);
+            questions.forEach((question, index) => {
+                const options = question.querySelectorAll('.option');
+                options.forEach(option => {
+                    option.classList.remove('correct', 'incorrect');
+                    if (option.classList.contains('selected')) {
+                        if (sectionAnswers[index]) {
+                            option.classList.add('correct');
+                            correct++;
+                        } else {
+                            option.classList.add('incorrect');
+                        }
+                    }
+                });
+            });
+            
+            const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+            
+            let message = `${sectionName} Quiz Results:\n${correct}/${total} correct (${percentage}%)`;
+            if (percentage >= 80) {
+                message += "\n🎉 Excellent work!";
+                completedSections.add(currentSection);
+            } else if (percentage >= 60) {
+                message += "\n👍 Good job! Keep practicing.";
+            } else {
+                message += "\n📚 Keep studying and try again.";
+            }
+            
+            alert(message);
+            updateProgress();
+        }
+
+        // Final quiz functions
+        function checkFinalQuiz() {
+            let totalCorrect = 0;
+            let totalQuestions = 0;
+            
+            // Count all answers
+            Object.keys(answers.quiz).forEach(category => {
+                Object.values(answers.quiz[category]).forEach(isCorrect => {
+                    totalQuestions++;
+                    if (isCorrect) totalCorrect++;
+                });
+            });
+            
+            if (totalQuestions === 0) {
+                alert('Please answer all questions before submitting!');
+                return;
+            }
+            
+            // Show results
+            const percentage = Math.round((totalCorrect / totalQuestions) * 100);
+            const resultsDiv = document.getElementById('quizResults');
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const feedback = document.getElementById('feedback');
+            
+            scoreDisplay.textContent = `${totalCorrect}/${totalQuestions} (${percentage}%)`;
+            
+            if (percentage >= 90) {
+                feedback.innerHTML = "🌟 Outstanding! You've mastered Unit 1!<br>You're ready for the next unit.";
+            } else if (percentage >= 80) {
+                feedback.innerHTML = "🎉 Excellent work! You have a strong understanding of the material.<br>Review any missed topics and you'll be perfect!";
+            } else if (percentage >= 70) {
+                feedback.innerHTML = "👍 Good job! You understand most concepts.<br>Review the vocabulary and grammar sections for improvement.";
+            } else if (percentage >= 60) {
+                feedback.innerHTML = "📚 Keep studying! You're on the right track.<br>Focus on vocabulary and practice more exercises.";
+            } else {
+                feedback.innerHTML = "💪 Don't give up! Review all sections carefully.<br>Practice with the flashcards and try again.";
+            }
+            
+            resultsDiv.style.display = 'block';
+            
+            if (percentage >= 70) {
+                completedSections.add('quiz');
+                updateProgress();
+            }
+        }
+
+        function resetQuiz() {
+            answers.quiz = { vocab: {}, grammar: {}, reading: {}, mixed: {} };
+            document.querySelectorAll('#quiz .option').forEach(option => {
+                option.classList.remove('selected', 'correct', 'incorrect');
+            });
+            document.getElementById('quizResults').style.display = 'none';
+        }
+
+        // Flashcard functions
+        function loadCard() {
+            if (flashcardData.length === 0) return;
+            
+            const card = flashcardData[currentCardIndex];
+            document.getElementById('flashcardFront').innerHTML = `
+                <div style="font-size: 1.8rem; margin-bottom: 10px;">${card.word}</div>
+                <div style="font-size: 1rem; opacity: 0.8;">${card.ipa}</div>
+            `;
+            document.getElementById('flashcardMeaning').textContent = card.meaning;
+            document.getElementById('flashcardExample').textContent = card.example;
+            
+            document.getElementById('flashcard').classList.remove('flipped');
+            isFlipped = false;
+        }
+
+        function flipCard() {
+            const flashcard = document.getElementById('flashcard');
+            flashcard.classList.toggle('flipped');
+            isFlipped = !isFlipped;
+        }
+
+        function nextCard() {
+            currentCardIndex = (currentCardIndex + 1) % flashcardData.length;
+            loadCard();
+        }
+
+        function markCard(isCorrect) {
+            gameStats.total++;
+            if (isCorrect) {
+                gameStats.correct++;
+            } else {
+                gameStats.incorrect++;
+            }
+            
+            updateStats();
+            
+            const flashcard = document.getElementById('flashcard');
+            flashcard.style.transform = isCorrect ? 'scale(1.05)' : 'scale(0.95)';
+            flashcard.style.filter = isCorrect ? 'brightness(1.2)' : 'brightness(0.8)';
+            
+            setTimeout(() => {
+                flashcard.style.transform = 'scale(1)';
+                flashcard.style.filter = 'brightness(1)';
+                nextCard();
+            }, 300);
+        }
+
+        function shuffleCards() {
+            for (let i = flashcardData.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [flashcardData[i], flashcardData[j]] = [flashcardData[j], flashcardData[i]];
+            }
+            currentCardIndex = 0;
+            loadCard();
+        }
+
+        function resetProgress() {
+            gameStats = { total: 0, correct: 0, incorrect: 0 };
+            updateStats();
+            currentCardIndex = 0;
+            loadCard();
+        }
+
+        function updateStats() {
+            document.getElementById('totalCards').textContent = gameStats.total;
+            document.getElementById('correctCards').textContent = gameStats.correct;
+            
+            const accuracy = gameStats.total > 0 ? Math.round((gameStats.correct / gameStats.total) * 100) : 0;
+            document.getElementById('accuracyRate').textContent = accuracy + '%';
+        }
+
+        // Reading word tooltip functions
+        function setupWordTooltips() {
+            const clickableWords = document.querySelectorAll('.clickable-word');
+            const tooltip = document.getElementById('tooltip');
+            
+            clickableWords.forEach(word => {
+                word.addEventListener('mouseenter', function(e) {
+                    const meaning = this.getAttribute('data-meaning');
+                    tooltip.textContent = meaning;
+                    tooltip.style.display = 'block';
+                    tooltip.style.left = e.pageX + 10 + 'px';
+                    tooltip.style.top = e.pageY - 30 + 'px';
+                });
+                
+                word.addEventListener('mouseleave', function() {
+                    tooltip.style.display = 'none';
+                });
+                
+                word.addEventListener('mousemove', function(e) {
+                    tooltip.style.left = e.pageX + 10 + 'px';
+                    tooltip.style.top = e.pageY - 30 + 'px';
+                });
+                
+                // Add click event for audio
+                word.addEventListener('click', function() {
+                    const wordText = this.textContent.replace('🔊', '').trim();
+                    playAudio(wordText);
+                });
+            });
+        }
+
+        // Audio function
+        function playAudio(word) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(word);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.8;
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        // Progress tracking
+        function updateProgress() {
+            completedSections.add(currentSection);
+            const totalSections = 5; // vocabulary, reading, flashcards, grammar, quiz
+            const completed = completedSections.size;
+            const percentage = Math.round((completed / totalSections) * 100);
+            
+            document.getElementById('progressFill').style.width = percentage + '%';
+            document.getElementById('progressText').textContent = percentage + '%';
+        }
+
+        // Quiz Game Functions
+        function setGameMode(mode) {
+            currentGameMode = mode;
+            
+            if (mode === 'study') {
+                document.getElementById('studyMode').style.display = 'block';
+                document.getElementById('quizMode').style.display = 'none';
+                document.getElementById('studyModeBtn').style.background = 'linear-gradient(135deg, #0984e3, #74b9ff)';
+                document.getElementById('quizModeBtn').style.background = 'rgba(255,255,255,0.15)';
+            } else {
+                document.getElementById('studyMode').style.display = 'none';
+                document.getElementById('quizMode').style.display = 'block';
+                document.getElementById('quizModeBtn').style.background = 'linear-gradient(135deg, #0984e3, #74b9ff)';
+                document.getElementById('studyModeBtn').style.background = 'rgba(255,255,255,0.15)';
+            }
+        }
+        
+        function startQuizGame(type) {
+            quizGameData = {
+                type: type,
+                questions: generateQuizQuestions(type),
+                currentQuestion: 0,
+                score: 0,
+                streak: 0,
+                timeLeft: 30,
+                timer: null,
+                totalQuestions: 10
+            };
+            
+            document.getElementById('quizGameArea').style.display = 'block';
+            document.getElementById('quizResults').style.display = 'none';
+            
+            showNextQuestion();
+            startTimer();
+        }
+        
+        function generateQuizQuestions(type) {
+            const questions = [];
+            const shuffledData = [...flashcardData].sort(() => Math.random() - 0.5);
+            
+            for (let i = 0; i < Math.min(10, shuffledData.length); i++) {
+                const correct = shuffledData[i];
+                let question = {};
+                
+                switch (type) {
+                    case 'multiple':
+                        const wrongOptions = flashcardData
+                            .filter(item => item.word !== correct.word)
+                            .sort(() => Math.random() - 0.5)
+                            .slice(0, 3);
+                        
+                        question = {
+                            type: 'multiple',
+                            question: `What does "${correct.word}" mean?`,
+                            options: [correct.meaning, ...wrongOptions.map(item => item.meaning)]
+                                .sort(() => Math.random() - 0.5),
+                            correct: correct.meaning,
+                            word: correct.word
+                        };
+                        break;
+                        
+                    case 'type':
+                        question = {
+                            type: 'type',
+                            question: `Type the English word for: "${correct.meaning}"`,
+                            correct: correct.word.toLowerCase(),
+                            meaning: correct.meaning
+                        };
+                        break;
+                        
+                    case 'match':
+                        question = {
+                            type: 'multiple',
+                            question: `Which word means "${correct.meaning}"?`,
+                            options: [correct.word, ...shuffledData.filter(item => item.word !== correct.word)
+                                .slice(0, 3).map(item => item.word)]
+                                .sort(() => Math.random() - 0.5),
+                            correct: correct.word,
+                            meaning: correct.meaning
+                        };
+                        break;
+                        
+                    case 'audio':
+                        question = {
+                            type: 'audio',
+                            question: `Listen and choose the correct meaning:`,
+                            options: [correct.meaning, ...flashcardData
+                                .filter(item => item.word !== correct.word)
+                                .sort(() => Math.random() - 0.5)
+                                .slice(0, 3).map(item => item.meaning)]
+                                .sort(() => Math.random() - 0.5),
+                            correct: correct.meaning,
+                            word: correct.word,
+                            audio: true
+                        };
+                        break;
+                }
+                
+                questions.push(question);
+            }
+            
+            return questions;
+        }
+        
+        function showNextQuestion() {
+            if (quizGameData.currentQuestion >= quizGameData.totalQuestions) {
+                endQuizGame();
+                return;
+            }
+            
+            const question = quizGameData.questions[quizGameData.currentQuestion];
+            
+            document.getElementById('quizQuestionText').textContent = question.question;
+            document.getElementById('quizQuestion').textContent = 
+                `${quizGameData.currentQuestion + 1}/${quizGameData.totalQuestions}`;
+            
+            const optionsArea = document.getElementById('quizOptionsArea');
+            const inputArea = document.getElementById('quizInputArea');
+            
+            if (question.type === 'type') {
+                optionsArea.style.display = 'none';
+                inputArea.style.display = 'block';
+                document.getElementById('quizInput').value = '';
+                document.getElementById('quizInput').focus();
+            } else {
+                optionsArea.style.display = 'block';
+                inputArea.style.display = 'none';
+                
+                optionsArea.innerHTML = '';
+                question.options.forEach(option => {
+                    const optionDiv = document.createElement('div');
+                    optionDiv.className = 'quiz-option';
+                    optionDiv.textContent = option;
+                    optionDiv.onclick = () => selectQuizGameOption(optionDiv, option, question.correct);
+                    optionsArea.appendChild(optionDiv);
+                });
+                
+                // Auto-play audio for audio questions
+                if (question.audio) {
+                    setTimeout(() => {
+                        playAudio(question.word);
+                    }, 500);
+                }
+            }
+            
+            document.getElementById('quizFeedback').innerHTML = '';
+            quizGameData.timeLeft = 30;
+        }
+        
+        function selectQuizGameOption(element, selected, correct) {
+            // Remove previous selections
+            document.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            element.classList.add('selected');
+            
+            setTimeout(() => {
+                checkQuizAnswer(selected, correct);
+            }, 500);
+        }
+        
+        function submitTypedAnswer() {
+            const input = document.getElementById('quizInput');
+            const answer = input.value.trim().toLowerCase();
+            const question = quizGameData.questions[quizGameData.currentQuestion];
+            
+            checkQuizAnswer(answer, question.correct);
+        }
+        
+        function checkQuizAnswer(selected, correct) {
+            const isCorrect = selected.toLowerCase() === correct.toLowerCase();
+            
+            if (isCorrect) {
+                quizGameData.score += 10 + quizGameData.streak;
+                quizGameData.streak++;
+                document.getElementById('quizFeedback').innerHTML = 
+                    `<span style="color: #00b894; font-weight: bold;">✅ Correct! +${10 + quizGameData.streak - 1} points</span>`;
+            } else {
+                quizGameData.streak = 0;
+                document.getElementById('quizFeedback').innerHTML = 
+                    `<span style="color: #e17055; font-weight: bold;">❌ Incorrect. The answer is: ${correct}</span>`;
+            }
+            
+            // Update display
+            document.getElementById('quizScore').textContent = quizGameData.score;
+            document.getElementById('quizStreak').textContent = quizGameData.streak;
+            
+            // Show correct/incorrect styling
+            if (quizGameData.questions[quizGameData.currentQuestion].type !== 'type') {
+                document.querySelectorAll('.quiz-option').forEach(opt => {
+                    if (opt.textContent === correct) {
+                        opt.classList.add('correct');
+                    } else if (opt.classList.contains('selected') && !isCorrect) {
+                        opt.classList.add('incorrect');
+                    }
+                });
+            }
+            
+            quizGameData.currentQuestion++;
+            
+            setTimeout(() => {
+                showNextQuestion();
+            }, 2000);
+        }
+        
+        function startTimer() {
+            if (quizGameData.timer) {
+                clearInterval(quizGameData.timer);
+            }
+            
+            quizGameData.timer = setInterval(() => {
+                quizGameData.timeLeft--;
+                document.getElementById('quizTimer').textContent = quizGameData.timeLeft;
+                
+                if (quizGameData.timeLeft <= 10) {
+                    document.getElementById('quizTimer').parentElement.classList.add('warning');
+                } else {
+                    document.getElementById('quizTimer').parentElement.classList.remove('warning');
+                }
+                
+                if (quizGameData.timeLeft <= 0) {
+                    // Time's up - move to next question
+                    document.getElementById('quizFeedback').innerHTML = 
+                        '<span style="color: #e17055; font-weight: bold;">⏰ Time\'s up!</span>';
+                    
+                    quizGameData.streak = 0;
+                    quizGameData.currentQuestion++;
+                    
+                    setTimeout(() => {
+                        showNextQuestion();
+                    }, 1500);
+                }
+            }, 1000);
+        }
+        
+        function endQuizGame() {
+            if (quizGameData.timer) {
+                clearInterval(quizGameData.timer);
+            }
+            
+            document.getElementById('quizGameArea').style.display = 'none';
+            document.getElementById('quizResults').style.display = 'block';
+            
+            const percentage = Math.round((quizGameData.score / (quizGameData.totalQuestions * 10)) * 100);
+            
+            document.getElementById('finalQuizScore').innerHTML = 
+                `Score: ${quizGameData.score} points<br>Accuracy: ${percentage}%`;
+        }
+        
+        function resetQuizGame() {
+            document.getElementById('quizGameArea').style.display = 'none';
+            document.getElementById('quizResults').style.display = 'none';
+            
+            // Reset stats display
+            document.getElementById('quizScore').textContent = '0';
+            document.getElementById('quizStreak').textContent = '0';
+            document.getElementById('quizTimer').textContent = '30';
+            document.getElementById('quizQuestion').textContent = '1/10';
+        }
+
+        // Initialize the app
+        function initApp() {
+            loadCard();
+            setupWordTooltips();
+            updateProgress();
+            setGameMode('study'); // Set default mode
+        }
+
+        // Start the app when page loads
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'996416156395a023',t:'MTc2MTc1NTcyOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
