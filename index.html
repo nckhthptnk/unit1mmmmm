@@ -167,49 +167,57 @@
     <div class="flex border-b border-gray-100"><button class="tab-btn flex-1 py-5 px-6 text-center font-medium transition-all duration-300 border-b-3 border-blue-600 text-blue-600 bg-blue-50 flex items-center justify-center gap-2" data-tab="vocabulary"> <span class="text-xl">📝</span> <span class="hidden sm:inline">Từ vựng</span> <span class="sm:hidden">Vocab</span> </button> <button class="tab-btn flex-1 py-5 px-6 text-center font-medium transition-all duration-300 border-b-3 border-transparent text-gray-600 hover:text-blue-600 hover:bg-blue-50 flex items-center justify-center gap-2" data-tab="reading"> <span class="text-xl">📖</span> <span class="hidden sm:inline">Bài đọc</span> <span class="sm:hidden">Reading</span> </button> <button class="tab-btn flex-1 py-5 px-6 text-center font-medium transition-all duration-300 border-b-3 border-transparent text-gray-600 hover:text-blue-600 hover:bg-blue-50 flex items-center justify-center gap-2" data-tab="grammar"> <span class="text-xl">📚</span> <span class="hidden sm:inline">Ngữ pháp</span> <span class="sm:hidden">Grammar</span> </button>
     </div><!-- Vocabulary Section -->
     <div id="vocabulary-content" class="tab-content p-6">
-     <div class="max-w-2xl mx-auto">
-      <div class="flashcard" id="flashcard">
-       <div class="flashcard-inner">
-        <div class="flashcard-front bg-gradient-to-br from-blue-500 to-blue-600 text-white">
-         <div class="text-3xl font-bold mb-4" id="word-text">
-          independent
+     <div class="max-w-2xl mx-auto"><!-- Vocabulary Mode Toggle -->
+      <div class="flex justify-center mb-8">
+       <div class="bg-gray-100 rounded-lg p-1 flex"><button id="learn-mode-btn" class="px-6 py-3 rounded-lg font-medium transition-all duration-300 bg-blue-600 text-white shadow-md flex items-center gap-2"> <span class="text-lg">📚</span> Học từ </button> <button id="test-mode-btn" class="px-6 py-3 rounded-lg font-medium transition-all duration-300 text-gray-600 hover:text-blue-600 flex items-center gap-2"> <span class="text-lg">📝</span> Kiểm tra </button>
+       </div>
+      </div><!-- Learn Mode - Flashcards -->
+      <div id="learn-mode" class="vocabulary-mode">
+       <div class="flashcard" id="flashcard">
+        <div class="flashcard-inner">
+         <div class="flashcard-front bg-gradient-to-br from-blue-500 to-blue-600 text-white">
+          <div class="text-3xl font-bold mb-4" id="word-text">
+           independent
+          </div>
+          <div class="text-lg mb-2" id="word-type">
+           (adj)
+          </div>
+          <div class="text-sm" id="word-ipa">
+           /ˌɪndɪˈpendənt/
+          </div>
+          <div class="mt-4 text-sm opacity-80">
+           Nhấn SPACE để lật thẻ
+          </div>
          </div>
-         <div class="text-lg mb-2" id="word-type">
-          (adj)
-         </div>
-         <div class="text-sm" id="word-ipa">
-          /ˌɪndɪˈpendənt/
-         </div>
-         <div class="mt-4 text-sm opacity-80">
-          Nhấn SPACE để lật thẻ
-         </div>
-        </div>
-        <div class="flashcard-back bg-gradient-to-br from-green-500 to-green-600 text-white">
-         <div class="text-xl font-semibold mb-4" id="word-meaning">
-          độc lập, tự lập
-         </div>
-         <div class="text-sm italic" id="word-example">
-          "She wants to be independent from her parents."
-         </div>
-         <div class="mt-4 text-sm opacity-80">
-          Nhấn SPACE để lật lại
+         <div class="flashcard-back bg-gradient-to-br from-green-500 to-green-600 text-white">
+          <div class="text-xl font-semibold mb-4" id="word-meaning">
+           độc lập, tự lập
+          </div>
+          <div class="text-sm italic" id="word-example">
+           "She wants to be independent from her parents."
+          </div>
+          <div class="mt-4 text-sm opacity-80">
+           Nhấn SPACE để lật lại
+          </div>
          </div>
         </div>
        </div>
-      </div>
-      <div class="flex justify-between items-center mt-6"><button id="prev-word" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors"> ← Trước </button>
-       <div class="text-center">
-        <div class="text-lg font-semibold" id="word-counter">
-         1 / 44
-        </div><button id="flip-card" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg mt-2 transition-colors"> Lật thẻ (Space) </button>
-       </div><button id="next-word" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"> Tiếp → </button>
-      </div><!-- Vocabulary Quiz Section -->
-      <div class="mt-12 bg-gray-50 rounded-lg p-6">
-       <h3 class="text-xl font-bold text-gray-800 mb-6">Kiểm tra từ vựng</h3>
-       <div id="vocabulary-quiz" class="space-y-4"><!-- Vocabulary quiz questions will be generated here -->
+       <div class="flex justify-between items-center mt-6"><button id="prev-word" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors"> ← Trước </button>
+        <div class="text-center">
+         <div class="text-lg font-semibold" id="word-counter">
+          1 / 44
+         </div><button id="flip-card" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg mt-2 transition-colors"> Lật thẻ (Space) </button>
+        </div><button id="next-word" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"> Tiếp → </button>
        </div>
-       <div class="mt-6 text-center"><button id="check-vocabulary" class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg transition-colors"> Kiểm tra đáp án </button>
-        <div id="vocabulary-result" class="mt-4 text-lg font-semibold"></div>
+      </div><!-- Test Mode - Quiz -->
+      <div id="test-mode" class="vocabulary-mode hidden">
+       <div class="bg-white rounded-lg p-6 border-2 border-blue-100">
+        <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2"><span class="text-2xl">📝</span> Kiểm tra từ vựng</h3>
+        <div id="vocabulary-quiz" class="space-y-4"><!-- Vocabulary quiz questions will be generated here -->
+        </div>
+        <div class="mt-6 text-center"><button id="check-vocabulary" class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg transition-colors shadow-lg"> Kiểm tra đáp án </button>
+         <div id="vocabulary-result" class="mt-4 text-lg font-semibold"></div>
+        </div>
        </div>
       </div>
      </div>
@@ -1228,6 +1236,49 @@
             document.getElementById('prev-word').addEventListener('click', prevWord);
             document.getElementById('flip-card').addEventListener('click', flipCard);
             document.getElementById('check-vocabulary').addEventListener('click', checkVocabularyAnswers);
+            
+            // Mode toggle buttons
+            document.getElementById('learn-mode-btn').addEventListener('click', () => switchVocabularyMode('learn'));
+            document.getElementById('test-mode-btn').addEventListener('click', () => switchVocabularyMode('test'));
+        }
+
+        function switchVocabularyMode(mode) {
+            const learnBtn = document.getElementById('learn-mode-btn');
+            const testBtn = document.getElementById('test-mode-btn');
+            const learnMode = document.getElementById('learn-mode');
+            const testMode = document.getElementById('test-mode');
+            
+            if (mode === 'learn') {
+                // Update buttons
+                learnBtn.classList.remove('text-gray-600', 'hover:text-blue-600');
+                learnBtn.classList.add('bg-blue-600', 'text-white', 'shadow-md');
+                testBtn.classList.remove('bg-blue-600', 'text-white', 'shadow-md');
+                testBtn.classList.add('text-gray-600', 'hover:text-blue-600');
+                
+                // Update content
+                learnMode.classList.remove('hidden');
+                testMode.classList.add('hidden');
+                
+                // Reset flashcard state
+                isFlipped = false;
+                document.getElementById('flashcard').classList.remove('flipped');
+            } else {
+                // Update buttons
+                testBtn.classList.remove('text-gray-600', 'hover:text-blue-600');
+                testBtn.classList.add('bg-blue-600', 'text-white', 'shadow-md');
+                learnBtn.classList.remove('bg-blue-600', 'text-white', 'shadow-md');
+                learnBtn.classList.add('text-gray-600', 'hover:text-blue-600');
+                
+                // Update content
+                testMode.classList.remove('hidden');
+                learnMode.classList.add('hidden');
+                
+                // Reset quiz results
+                document.getElementById('vocabulary-result').textContent = '';
+                document.querySelectorAll('#vocabulary-quiz .quiz-option').forEach(option => {
+                    option.classList.remove('correct', 'incorrect');
+                });
+            }
         }
 
         function updateVocabularyCard() {
@@ -1590,5 +1641,5 @@
         // Initialize app when page loads
         document.addEventListener('DOMContentLoaded', initializeApp);
     </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99698d93c769dfc6',t:'MTc2MTgxMzA1MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9969941f42484cd1',t:'MTc2MTgxMzMxOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
